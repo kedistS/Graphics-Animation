@@ -1,0 +1,3 @@
+g++ main.cpp -o graphics3 -framework OpenGL -framework GLUT -Wno-deprecated
+./graphics3
+pkill graphics3
