@@ -5,10 +5,11 @@
 #endif
 #include<stdio.h>
 #include <stdlib.h>
-#include<windows.h>
 #include<math.h>
-#include <windows.h>
+#ifdef _WIN32
+#include<windows.h>
 #include <fcntl.h>
+#endif
 #define PI 3.1416
 
 GLfloat angle1 = 160.0;
@@ -686,7 +687,7 @@ void sceenario2()
 
 void my_control_func()
 {
-    counter++;
+    counter += 3;  // Increase for faster animation (was 1)
     if(counter>16800||counter<3800)
     {
         m=m;
@@ -695,10 +696,10 @@ void my_control_func()
 
     }
     else{
-    mount+=.2;
+    mount+=.6;  // 3x faster
     if(flag>-800){
-    m-=.2;
-    flag-=.2;
+    m-=.6;      // 3x faster
+    flag-=.6;
     }
     else{
     m=350;
@@ -708,8 +709,8 @@ void my_control_func()
     }
     if(flag2>-1200)
     {
-    mm-=.2;
-    flag2-=.2;
+    mm-=.6;     // 3x faster
+    flag2-=.6;
     }
     else
     {
